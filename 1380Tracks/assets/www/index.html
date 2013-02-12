@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>1380 Tracks</title>
+		<link rel="stylesheet" href="css/s2kit.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0.css" />
+		<script src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile.js"></script>
+		<script type="text/javascript" src="includes/body.js"></script>
+		<script type="text/javascript" src="js/parseTrainTimings.js"></script>
+		<script type="text/javascript" src="js/indiaLike_populate.js"></script>
+		<script type="text/javascript" src="js/hellme.js"></script>
+		<script src="js/mobiscroll.core-2.0.3.js" type="text/javascript"></script>
+		<link href="css/mobiscroll.core-2.0.3.css" rel="stylesheet" type="text/css" />
+		<script src="js/mobiscroll.select-2.0.2.js" type="text/javascript"></script>
+	
+		<script>
+			function populate()
+			 {
+				$().populate("tiruttani", ".tiruttaniCls");
+				$().populate("tambaram", ".tambaramCls");
+				$().populate("sullurupetta", ".sullurupettaCls");
+				$().populate("velachery", ".velacheryCls");
+				$().populate("chengalpattu", ".chengalpattuCls");
+				$().populate("tirumalpur", ".tirumalpurCls");
+				return true;
+			}
+			function populateCollapseContent()
+			{
+				 collapseContent("tiruttani","Chennai","1");
+				 collapseContent("tambaram","Chennai","2");
+				 collapseContent("sullurupetta","Chennai","3");
+				 collapseContent("velachery","Chennai","4");
+				 collapseContent("chengalpattu","Tambaram","5");
+				 collapseContent("tirumalpur","chengalpattu","6");
+			}
+			
+			
+			
+		</script>
+
+	</head>
+	<!-- page -->
+	<body onload="return populate();">
+		<div data-role="page" data-theme="a">
+
+
+			<!-- header -->
+			
+			<div data-role="header">
+				<h1>1380 Tracks</h1>
+				<a  id="upd" data-position-to="window" data-transition="pop" data-icon="gear" class="ui-btn-right">Update</a>
+				<a  id="info-btn" data-position-to="window" data-transition="pop" data-icon="info" class="ui-btn-left">Info</a>
+			</div>
+			
+			
+			
+			<!--pop up for Info  -->
+			
+			
+			<div data-role="popup" id="info" data-overlay-theme="a" data-theme="c" class="ui-corner-all" data-dismissable="false">
+				
+				<div data-role="header" data-theme="a" class="ui-corner-top">
+				<a href="#" data-rel="back" data-role="button" data-theme="c" data-icon="delete" data-iconpos="notext" class="ui-btn-right"></a>
+					<h1>Info</h1>
+				</div>
+				<div data-role="content" class="ui-corner-bottom ui-content" align="center" >
+						F  - Fast<br/>
+						$  - 12 Car<br/>
+						LS - Ladies Special<br/>
+				</div>
+			</div>
+
+
+			<!--pop up for update  -->
+
+			<div data-role="popup" id="update" data-overlay-theme="a" data-theme="c" class="ui-corner-all" data-dismissable="false">
+
+				<div data-role="header" data-theme="a" class="ui-corner-top">
+					<h1>Updating... <span id="per"> </span></h1>
+				</div>
+				<div data-role="content" class="ui-corner-bottom ui-content" align="center" >
+
+					<progress id="progressbar" max="827" value="0">
+
+					</progress>
+
+				</div>
+			</div>
+
+
+			<!--pop up containing results  -->
+			
+			<div data-role="popup" id="fetch" data-overlay-theme="a" data-theme="c"  class="ui-corner-all" data-dismissable="false">
+				<div data-role="header" data-theme="a" class="ui-corner-top">
+					<a href="#" data-rel="back" data-role="button" data-theme="c" data-icon="delete" data-iconpos="notext" class="ui-btn-right"></a>
+					<h1 id="fetchhead"> </h1>
+				</div>
+				<div data-role="content" data-theme="c" class="ui-corner-bottom ui-content" align="center" >
+
+					<div id ="fetchResult" align="center" >
+
+					</div>
+
+				</div>
+			</div>
+			
+			
+			<!--pop up for alert -->
+
+			<div data-role="popup" id="alert" data-overlay-theme="a" data-theme="c"  class="ui-corner-all" data-dismissable="false">
+				<div data-role="header" data-theme="a" class="ui-corner-top">
+					<a href="#" data-rel="back" data-role="button" data-theme="c" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+					<h1>Alert</h1>
+				</div>
+				<div data-role="content" data-theme="c" class="ui-corner-bottom ui-content" align="center" id="alertcontent" ></div>
+			</div>
+
+
+			<!-- content -->
+			
+			<div data-role="content" align="center" id="content">
+				<img  src="img/train_1.png" />
+				<div data-role="collapsible-set">
+				<script>
+				
+				  populateCollapseContent();
+				
+				</script>
+					
+				</div>
+			</div>
+			
+			
+			<!-- footer -->
+			
+			<div data-role="footer" data-position="fixed">
+				<h4>&copy; 2012</h4>
+			</div>
+		</div>
+	</body>
+</html>
